@@ -1,0 +1,58 @@
+body{
+    background-color: #e3f2fd;
+}
+.title{
+    text-align:center;
+    font-family:cursive;
+    font-size: 200%;
+}
+
+.form{
+    position: relative;
+    width: 50%;
+    height: 25%;
+    background-color:#b0bec5;
+    top: 0%;
+    left: 25%;
+    border-radius: 20%;
+}
+
+.form h3{
+    position: relative;
+    font-family: cursive;
+    font-style: oblique;
+    font-size: 140%;
+    left: 20%;
+    top:20%;
+}
+#pass{
+    position: relative;
+    font-family: cursive;
+    font-style: oblique;
+    font-size: 140%;
+    left: 20%;
+    top: 30%;
+}
+.inp1{
+    position: relative;
+    top:30%;
+    left:50%;  
+}
+.inp2{
+    position: relative;
+    top: 7%;
+    right:0%;}
+
+
+#div {
+    text-align: center;
+    border:none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    margin-top: 50px;
+    margin-left: 730px;
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-left: 30px;
+    padding-right: 60px;
+}

@@ -1,0 +1,87 @@
+{% load static %}
+{% load staticfiles %}
+<html>
+    <head>
+    <link type="text/css" href="{% static 'css/conversor.css'%}" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <div class="conv">
+            <form name="fo">
+                 <td colspan="5"><input onkeypress="return solonumeros(event)" type="text" name="valores1" id="valores1" ></td> <br><br>
+    <select class="selec1" name="monedas1" onclick="cambio()">
+            <option value="1">Dolares</option>
+            <option value="1.13">Euro</option>
+            <option value="0.27">Reales</option>
+            <option value="0.0677">Pesos Argentinos</option>
+            <option value="0.0015">Chilenos</option>
+            <option value="0.031">Uruguayos</option>
+        </select><br><br>
+     <td  colspan="5"><input onkeypress="return solonumeros2(event)" type="text" name="valores2" id="valores2" ></td><br><br>
+    
+    <select class="selec2"  name="monedas2" onclick="cambio()" >
+            <option value="1">Dolares</option>
+            <option value="1.13">Euro</option>
+            <option value="0.27">Reales</option>
+            <option value="0.0677">Pesos Argentinos</option>
+            <option value="0.0015">Chilenos</option>
+            <option value="0.031">Uruguayos</option>
+        </select>
+    
+    <input onclick="borrar()" value="Borrar" type="button" id="button">
+    
+       
+     <br>    
+</form>
+        </div>
+    <script>
+        function borrar(){
+        document.fo.valores1.value= "";
+        document.fo.valores2.value= "";
+    }
+
+    function solonumeros(e){
+        
+        key=e.keyCode || e.which;
+        
+        teclado=String.fromCharCode(key);
+        
+        numeros="0123456789.";
+       
+        
+        if(numeros.indexOf(teclado)==-1 ){
+            return false;
+        }
+    }
+    
+    function solonumeros2(e){
+        
+        key=e.keyCode || e.which;
+        
+        teclado=String.fromCharCode(key);
+        
+        numeros="";
+       
+        
+        if(numeros.indexOf(teclado)==-1 ){
+            return false;
+        }
+    }
+    
+    
+    function cambio(){
+        var cambiar = document.fo.valores1.value;
+        
+        var ayuda1 = document.fo.monedas1.value;
+        
+        var ayuda2 = document.fo.monedas2.value;
+        
+        var pri =eval(cambiar*ayuda1);
+        var seg =eval(pri/ayuda2);
+        
+        document.getElementById("valores2").value=seg;
+        
+    }
+    
+    </script>
+    </body>
+</html>

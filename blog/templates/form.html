@@ -1,0 +1,31 @@
+{% load static %}
+{% load staticfiles %}
+<html>
+    <head>
+    <title>Formulario</title>
+    <link type="text/css" href="{% static 'css/form.css'%}" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <td  colspan="5"><input class="inp1" type="text"  ></td>
+        <td  colspan="5"><input class="inp2" type="text"  ></td>
+        
+        <div class="form">
+            <h3>Usuario:</h3>
+            <h3 id="pass">Contrasenia:</h3>     
+            <form><div id="div" onmouseover="move()" class="div" ><h5>Click me!!</h5></div></form>                
+        </div>
+
+     <script>
+    function move() {
+    var div = document.getElementById("div");
+    var a = Math.random(1,10);
+    console.log(a);
+    var a = a*300;
+    var b = Math.random(1,10);
+    var b = b*200;
+    div.style.left = a;
+    div.style.top = b;
+             </script>
+
+    </body>
+</html>

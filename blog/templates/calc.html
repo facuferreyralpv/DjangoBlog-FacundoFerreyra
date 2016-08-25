@@ -1,0 +1,120 @@
+{% load static %}
+{% load staticfiles %}
+<html>
+    </head>
+    <body>
+        <div class="title">
+        </div>
+        <br>
+        <div class="calc"> 
+            <form name="fo" >
+            <link type="text/css" href="{% static 'css/calc.css'%}" rel="stylesheet" media="screen,projection"/>
+         <table>
+            <td class=inputstyle colspan="5"><input type="text" name="valores" id="valores" onkeypress ="return solonumeros(event)" ></td> 
+            <br>
+            <tr>    
+            <td><input type="button" class="button black" value="7" onclick="print(value)" ></td>
+            <td><input type="button" class="button black" value="8" onclick="print(value)" ></td> 
+            <td><input type="button" class="button black" value="9" onclick="print(value)" ></td>
+            <td><input type="button" class="button pink" value="+" onclick="print(value)" ></td>
+            <td><input type="button" class="button pink" value=" -" onclick="print(value)" ></td>
+             </tr>
+            <tr>
+            <br>
+            <td><input type="button" class="button black" value="4" onclick="print(value)" ></td>
+            <td><input type="button" class="button black" value="5" onclick="print(value)" ></td>
+            <td><input type="button" class="button black" value="6" onclick="print(value)" ></td>
+            <td><input type="button" class="button pink" value="*" onclick="print(value)" ></td>
+            <td><input type="button" class="button pink" value=" /" onclick="print(value)" ></td>
+            </tr>
+            <tr>
+            <td><input type="button"class="button black" value="1" onclick="print(value)" ></td>
+            <td><input type="button" class="button black" value="2" onclick="print(value)" ></td>
+            <td><input type="button" class="button black" value="3" onclick="print(value)" ></td>
+           <td><input type="button" class="button pink" value="(" onclick="print(value)" ></td>
+            <td><input type="button" class="button pink" value=" )" onclick="print(value)" ></td>
+            </tr>    
+            <tr>
+            <td><input type="button" class="button black" value=" ." onclick="print(value)" ></td>
+            <td><input type="button" class="button black" value="0" onclick="print(value)" ></td>
+            <td><input type="button" class="button black" value="<-" onclick="borrar()" ></td>
+            <td><input type="button" class="button gray" value="c" onclick="borrartodo()" ></td>
+            <td><input type="button"  class="button orange" value="=" onclick="resultado()" ></td>
+            </tr>
+
+    </table>
+                  <select id="select" name="cssCambiar" onChange="changeCss();">
+            <option value="./static/css/calc.css">Comun</option>
+            <option value="/home/facu/Escritorio/Blog/blog/static/css/calc2.css">rojo</option>
+            <option value="{% static 'css/calc3.css'%}">verde</option>
+        </select>
+            
+            </form>
+        </div>
+        <script>
+        
+    var res="";
+    
+    function borrartodo(){
+        document.fo.valores.value="";
+    }
+    
+    function borrar(){
+        
+        var anterior= document.fo.valores.value;
+        
+        var nuevo=anterior.substring(0,anterior.length-1);
+        
+        document.getElementById("valores").value=nuevo;
+        
+    }
+    
+    function resultado(){
+    
+        
+           
+        res = document.fo.valores.value;
+        
+        document.getElementById("valores").value=res;
+        eval(res);
+        
+        
+    
+        document.fo.valores.value=eval(res);
+        
+        
+    }
+    
+    function solonumeros(e){
+        
+        key=e.keyCode || e.which;
+        
+        teclado=String.fromCharCode(key);
+        
+        numeros="0123456789+-*/().";
+       
+        
+        if(numeros.indexOf(teclado)==-1 ){
+            return false;
+        }
+    }
+        
+    function print(num){
+            
+        
+                
+        var anterior= document.fo.valores.value;
+        
+        document.getElementById("valores").value=anterior+num;
+   
+    }
+    
+    function changeCss(){
+		var link = document.getElementById("cssArchivo");
+		var css = document.fo.cssCambiar;
+		link.href = css.value;		
+	};
+        </script>
+      
+        </body>
+</html>

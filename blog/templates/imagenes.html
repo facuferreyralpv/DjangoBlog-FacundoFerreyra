@@ -1,0 +1,65 @@
+{% load static %}
+{% load staticfiles %}
+<html>
+    <head>
+    <link type="text/css" href="{% static 'css/imagenes.css'%}" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body onload="both()">
+        <div class="title">
+            <div id="myBar"></div>
+        
+        </div>
+        <br>
+        <br>
+        <div class="img">
+             <img id="image" src="{% static 'images/1.jpeg' %}">
+             <br>
+            <div id="myProgress">
+</div>
+        
+        </div>
+        <script>
+        function both(){
+        imageChanger();
+        move();
+}
+        
+        function imageChanger(){
+            var image = document.getElementById("image");
+            switch(Math.floor(Math.random() * 8) + 1){
+                case 1 :
+                    image.src = "{% static 'images/1.jpeg' %}";
+                    break;
+                case 2 :
+                    image.src = "{% static 'images/2.jpeg' %}";
+                    break;
+                case 3:
+                    image.src = "{% static 'images/3.jpeg' %}";
+                    break;
+                case 4:
+                    image.src = "{% static 'images/4.jpeg' %}";
+                    break;                                        
+
+}
+            setTimeout(imageChanger, 5000);
+        }
+        
+function move() {
+   var elem = document.getElementById("myBar");   
+   var width = 1;
+   var id = setInterval(frame, 50);
+  
+function frame() {
+    if (width >= 100) {
+        clearInterval(id);
+        move();
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      console.log(width);
+    }
+  }
+}</script>
+    </body>
+    
+</html>
